@@ -6,7 +6,7 @@
   <title>🎉 JOSLINFEST 2025 🎉</title>
   <style>
     body {
-      background: url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background: url('https://images.unsplash.com/photo-1607311382304-4ffb0c33c6b1?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
       background-size: cover;
       color: white;
       font-family: 'Georgia', serif;
@@ -37,8 +37,18 @@
       font-style: italic;
       color: #ffd700;
     }
-    audio {
-      display: none;
+    #playButton {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      background-color: #ffd700;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #playButton:hover {
+      background-color: #ffcc00;
     }
   </style>
 </head>
@@ -60,11 +70,20 @@
     </div>
 
     <p>🔥 ¡Nos vamos con música, botas, y alma ranchera!<br>¡No faltes, vaquero! 🎺🥃</p>
+    <button id="playButton">🎵 Reproducir Música</button>
   </div>
 
-  <audio autoplay loop>
+  <audio id="musicPlayer">
     <source src="ElEnvidioso.mp3" type="audio/mpeg">
     Tu navegador no soporta el audio.
   </audio>
+
+  <script>
+    const btn = document.getElementById("playButton");
+    const audio = document.getElementById("musicPlayer");
+    btn.addEventListener("click", () => {
+      audio.play();
+    });
+  </script>
 </body>
 </html>
