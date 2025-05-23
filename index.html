@@ -6,46 +6,48 @@
   <title>🎉 JOSLINFEST 2025 🎉</title>
   <style>
     body {
+      margin: 0;
+      padding: 0;
       background: url('https://images.unsplash.com/photo-1607311382304-4ffb0c33c6b1?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
       background-size: cover;
-      color: white;
       font-family: 'Georgia', serif;
+      color: #fff;
       text-align: center;
-      padding: 40px 20px;
     }
     .container {
-      background: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.4); /* Menos opacidad */
       border-radius: 20px;
       padding: 30px;
-      max-width: 700px;
-      margin: auto;
-      box-shadow: 0 0 20px #000;
+      max-width: 750px;
+      margin: 30px auto;
+      box-shadow: 0 0 15px #000;
     }
     h1 {
       font-size: 3em;
-      margin-bottom: 0.2em;
-    }
-    .emoji {
-      font-size: 2em;
+      margin: 0.2em 0;
     }
     p {
       font-size: 1.2em;
       line-height: 1.6em;
     }
     .frases {
-      margin-top: 2em;
+      margin-top: 1.5em;
       font-style: italic;
       color: #ffd700;
     }
+    .emoji {
+      font-size: 2em;
+    }
     #playButton {
       margin-top: 20px;
-      padding: 10px 20px;
+      padding: 12px 25px;
       font-size: 1.2em;
       background-color: #ffd700;
       color: #000;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
+      box-shadow: 2px 2px 5px #333;
     }
     #playButton:hover {
       background-color: #ffcc00;
@@ -53,6 +55,8 @@
   </style>
 </head>
 <body>
+  <button id="playButton">🎵 Reproducir Música</button>
+
   <div class="container">
     <div class="emoji">🎉🤠</div>
     <h1>¡JOSLINFEST 2025!</h1>
@@ -70,7 +74,6 @@
     </div>
 
     <p>🔥 ¡Nos vamos con música, botas, y alma ranchera!<br>¡No faltes, vaquero! 🎺🥃</p>
-    <button id="playButton">🎵 Reproducir Música</button>
   </div>
 
   <audio id="musicPlayer">
