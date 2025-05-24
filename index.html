@@ -4,11 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <title>🎉 JOSLINFEST 2025 🎉</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("wUeiNHXSgheEUmHRV");
+    })();
+  </script>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: url('https://images.unsplash.com/photo-1607311382304-4ffb0c33c6b1?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background: url('08.jpg') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Georgia', serif;
       color: #fff;
@@ -38,25 +44,55 @@
     .emoji {
       font-size: 2em;
     }
-    #playButton {
+    #playButton, #confirmButton {
       margin-top: 20px;
       padding: 12px 25px;
       font-size: 1.2em;
-      background-color: #ffd700;
-      color: #000;
       border: none;
       border-radius: 12px;
       cursor: pointer;
       box-shadow: 2px 2px 5px #333;
     }
+    #playButton {
+      background-color: #ffd700;
+      color: #000;
+    }
     #playButton:hover {
       background-color: #ffcc00;
+    }
+    #confirmButton {
+      background-color: #32CD32;
+      color: #fff;
+    }
+    #confirmButton:hover {
+      background-color: #28a428;
     }
     .intercalada {
       margin: 20px 0;
       border-radius: 12px;
       max-width: 90%;
       box-shadow: 0 0 10px #000;
+    }
+    #confirmationOverlay {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      color: #fff;
+      text-align: center;
+      padding-top: 20%;
+    }
+    .confirmationMessage h2 {
+      font-size: 2.5em;
+      color: #32CD32;
+      margin-bottom: 0.5em;
+    }
+    .confirmationMessage p {
+      font-size: 1.5em;
     }
   </style>
 </head>
@@ -67,35 +103,21 @@
     <div class="emoji">🎉🤠</div>
     <h1>¡JOSLINFEST 2025!</h1>
 
-    <img src="01.jpg" alt="Imagen 01" class="intercalada">
-
-    <p><strong>¡La fiesta vaquera del año ya está aquí!</strong></p>
-
-    <p>📅 <strong>Fechas:</strong> Del 20 al 22 de junio</p>
-
-    <img src="02.jpg" alt="Imagen 02" class="intercalada">
-
-    <p>📍 <strong>Lugar:</strong> Casita en Morelos (Pronto la ubicación)</p>
-
-    <img src="03.jpg" alt="Imagen 03" class="intercalada">
-
-    <p>👢 <strong>Código de vestimenta:</strong> ¡Obligatoriamente VAQUERO! OBLIGATORIO</p>
-
-    <img src="04.jpeg" alt="Imagen 04" class="intercalada">
-
-    <p>🎶 Prepárate para tres días de banda, sombreros, carne asada, tequila y descontrol total al puro estilo ranchero.</p>
-
-    <img src="05.jpeg" alt="Imagen 05" class="intercalada">
-
-    <div class="frases">
-      <p>🗣️ “No se van hasta dejar pedos a los cumpleañeros”</p>
-      <img src="06.jpeg" alt="Imagen 06" class="intercalada">
-      <p>🗣️ “En los tiempos de crisis interna, los hombres de buena voluntad y generosidad deben ser capaces de festejar”</p>
-    </div>
-
-    <img src="07.jpeg" alt="Imagen 07" class="intercalada">
-
     <p>🔥 ¡Nos vamos con música, botas, y alma ranchera!<br>¡No faltes, vaquero! 🎺🥃</p>
+
+    <form id="confirmForm">
+      <input type="hidden" name="name" value="Invitado JoslinFest">
+      <input type="hidden" name="title" value="Confirmación JoslinFest">
+      <input type="hidden" name="message" value="Este invitado confirmó su asistencia 🥳">
+      <button type="submit" id="confirmButton">✅ Confirmar Asistencia</button>
+    </form>
+  </div>
+
+  <div id="confirmationOverlay">
+    <div class="confirmationMessage">
+      <h2>✅ ¡Asistencia confirmada!</h2>
+      <p>Listo para una gran pedaaaaa 🎉🍻💃</p>
+    </div>
   </div>
 
   <audio id="musicPlayer">
@@ -106,8 +128,20 @@
   <script>
     const btn = document.getElementById("playButton");
     const audio = document.getElementById("musicPlayer");
-    btn.addEventListener("click", () => {
-      audio.play();
+    btn.addEventListener("click", () => audio.play());
+
+    const confirmForm = document.getElementById("confirmForm");
+    const overlay = document.getElementById("confirmationOverlay");
+
+    confirmForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      emailjs.sendForm("gmail", "template_confirmacion", this)
+        .then(() => {
+          overlay.style.display = "block";
+        }, (error) => {
+          alert("Error al enviar confirmación. Intenta de nuevo.");
+          console.error(error);
+        });
     });
   </script>
 </body>
