@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,7 +15,7 @@
       text-align: center;
     }
     .container {
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.5);
       border-radius: 20px;
       padding: 30px;
       max-width: 750px;
@@ -57,6 +58,30 @@
       max-width: 90%;
       box-shadow: 0 0 10px #000;
     }
+    form {
+      margin-top: 30px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1em;
+      width: 60%;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 10px;
+    }
+    button.confirmar {
+      padding: 10px 20px;
+      font-size: 1.1em;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .success {
+      color: #00ffcc;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -65,36 +90,37 @@
   <div class="container">
     <div class="emoji">🎉🤠</div>
     <h1>¡JOSLINFEST 2025!</h1>
-
-    <img src="01.jpg" alt="Imagen 01" class="intercalada">
-
     <p><strong>¡La fiesta vaquera del año ya está aquí!</strong></p>
+    <img src="01.jpg" class="intercalada" alt="Imagen 01">
 
     <p>📅 <strong>Fechas:</strong> Del 20 al 22 de junio</p>
-
-    <img src="02.jpg" alt="Imagen 02" class="intercalada">
-
     <p>📍 <strong>Lugar:</strong> Casita en Morelos (Pronto la ubicación)</p>
+    <img src="02.jpg" class="intercalada" alt="Imagen 02">
 
-    <img src="03.jpg" alt="Imagen 03" class="intercalada">
-
-    <p>👢 <strong>Código de vestimenta:</strong> ¡OBLIGATORIO VAQUERO!</p>
-
-    <img src="04.jpeg" alt="Imagen 04" class="intercalada">
+    <p>👢 <strong>Código de vestimenta:</strong> ¡Obligatoriamente VAQUERO! OBLIGATORIO</p>
+    <img src="03.jpg" class="intercalada" alt="Imagen 03">
 
     <p>🎶 Prepárate para tres días de banda, sombreros, carne asada, tequila y descontrol total al puro estilo ranchero.</p>
-
-    <img src="05.jpeg" alt="Imagen 05" class="intercalada">
+    <img src="04.jpeg" class="intercalada" alt="Imagen 04">
 
     <div class="frases">
+      <img src="05.jpeg" class="intercalada" alt="Imagen 05">
       <p>🗣️ “No se van hasta dejar pedos a los cumpleañeros”</p>
-      <img src="06.jpeg" alt="Imagen 06" class="intercalada">
       <p>🗣️ “En los tiempos de crisis interna, los hombres de buena voluntad y generosidad deben ser capaces de festejar”</p>
     </div>
 
-    <img src="07.jpeg" alt="Imagen 07" class="intercalada">
-
     <p>🔥 ¡Nos vamos con música, botas, y alma ranchera!<br>¡No faltes, vaquero! 🎺🥃</p>
+    <img src="06.jpeg" class="intercalada" alt="Imagen 06">
+
+    <img src="07.jpeg" class="intercalada" alt="Imagen 07">
+
+    <form id="confirmForm">
+      <h2>✅ Confirmar asistencia</h2>
+      <input type="text" name="nombre" id="nombre" placeholder="Tu nombre aquí..." required>
+      <br>
+      <button type="submit" class="confirmar">Confirmar asistencia</button>
+      <div class="success" id="mensaje"></div>
+    </form>
   </div>
 
   <audio id="musicPlayer">
@@ -107,6 +133,28 @@
     const audio = document.getElementById("musicPlayer");
     btn.addEventListener("click", () => {
       audio.play();
+    });
+
+    const form = document.getElementById("confirmForm");
+    const mensaje = document.getElementById("mensaje");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById("nombre").value;
+      fetch("https://script.google.com/macros/s/AKfycbw3NAhy8krI3jqIDSqSwKsy7Hdski7rBXmT5wTCxonaBT0sRYAlJEFwWPMGMO0u9eFOig/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: "nombre=" + encodeURIComponent(nombre)
+      })
+      .then(() => {
+        mensaje.textContent = "🎉 Confirmado. ¡Nos vemos en la fiesta!";
+        form.reset();
+      })
+      .catch(() => {
+        mensaje.textContent = "❌ Hubo un error. Inténtalo de nuevo.";
+      });
     });
   </script>
 </body>
