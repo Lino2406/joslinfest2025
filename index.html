@@ -2,131 +2,109 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>🎉 JOSLINFEST 2025 🎉</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: url('08.jpg') no-repeat center center fixed;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('08.jpg');
       background-size: cover;
-      font-family: 'Georgia', serif;
-      color: #fff;
-      text-align: center;
+      background-position: center;
+      color: white;
+      text-shadow: 1px 1px 2px black;
     }
     .container {
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 20px;
-      padding: 30px;
-      max-width: 750px;
-      margin: 30px auto;
-      box-shadow: 0 0 15px #000;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+      margin-top: 30px;
+      border-radius: 15px;
     }
-    h1 {
-      font-size: 3em;
-      margin: 0.2em 0;
+    h1, h2, h3, p {
+      text-align: center;
     }
-    p {
-      font-size: 1.2em;
-      line-height: 1.6em;
-    }
-    .frases {
-      margin-top: 1.5em;
-      font-style: italic;
-      color: #ffd700;
-    }
-    .emoji {
-      font-size: 2em;
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
     }
     #playButton {
-      margin-top: 20px;
-      padding: 12px 25px;
-      font-size: 1.2em;
-      background-color: #ffd700;
-      color: #000;
+      margin: 1rem auto;
+      display: block;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      background-color: #ff9800;
       border: none;
-      border-radius: 12px;
+      color: white;
       cursor: pointer;
-      box-shadow: 2px 2px 5px #333;
-    }
-    #playButton:hover {
-      background-color: #ffcc00;
-    }
-    .intercalada {
-      margin: 20px 0;
-      border-radius: 12px;
-      max-width: 90%;
-      box-shadow: 0 0 10px #000;
     }
     form {
-      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
     }
     input[type="text"] {
-      padding: 10px;
-      font-size: 1em;
-      width: 60%;
-      border-radius: 8px;
+      padding: 0.5rem;
+      font-size: 16px;
+      border-radius: 5px;
       border: none;
-      margin-bottom: 10px;
+      width: 80%;
+      max-width: 300px;
     }
-    button.confirmar {
+    button[type="submit"] {
+      margin-top: 1rem;
       padding: 10px 20px;
-      font-size: 1.1em;
-      background-color: #28a745;
-      color: white;
+      font-size: 16px;
+      border-radius: 10px;
+      background-color: #4caf50;
       border: none;
-      border-radius: 8px;
+      color: white;
       cursor: pointer;
     }
-    .success {
-      color: #00ffcc;
-      margin-top: 10px;
+    #mensaje {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #ffeb3b;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <button id="playButton">🎵 Reproducir Música</button>
-
+  <audio id="musicPlayer" src="ElEnvidioso.mp3"></audio>
+  <button id="playButton">▶ Reproducir Música</button>
   <div class="container">
-    <div class="emoji">🎉🤠</div>
-    <h1>¡JOSLINFEST 2025!</h1>
-    <p><strong>¡La fiesta vaquera del año ya está aquí!</strong></p>
-    <img src="01.jpg" class="intercalada" alt="Imagen 01">
-
-    <p>📅 <strong>Fechas:</strong> Del 20 al 22 de junio</p>
-    <p>📍 <strong>Lugar:</strong> Casita en Morelos (Pronto la ubicación)</p>
-    <img src="02.jpg" class="intercalada" alt="Imagen 02">
-
-    <p>👢 <strong>Código de vestimenta:</strong> ¡Obligatoriamente VAQUERO! OBLIGATORIO</p>
-    <img src="03.jpg" class="intercalada" alt="Imagen 03">
-
+    <h1>🎉🤠 ¡JOSLINFEST 2025! 🤠🎉</h1>
+    <h3>¡La fiesta vaquera del año ya está aquí!</h3>
+    <p>📅 Fechas: Del 20 al 22 de junio<br>
+       📍 Lugar: Casita en Morelos (Pronto la ubicación)<br>
+       👢 Código de vestimenta: ¡Obligatoriamente VAQUERO! OBLIGATORIO</p>
+    <img src="01.jpg" alt="Imagen 1"/>
     <p>🎶 Prepárate para tres días de banda, sombreros, carne asada, tequila y descontrol total al puro estilo ranchero.</p>
-    <img src="04.jpeg" class="intercalada" alt="Imagen 04">
-
-    <div class="frases">
-      <img src="05.jpeg" class="intercalada" alt="Imagen 05">
-      <p>🗣️ “No se van hasta dejar pedos a los cumpleañeros”</p>
-      <p>🗣️ “En los tiempos de crisis interna, los hombres de buena voluntad y generosidad deben ser capaces de festejar”</p>
-    </div>
-
-    <p>🔥 ¡Nos vamos con música, botas, y alma ranchera!<br>¡No faltes, vaquero! 🎺🥃</p>
-    <img src="06.jpeg" class="intercalada" alt="Imagen 06">
-
-    <img src="07.jpeg" class="intercalada" alt="Imagen 07">
+    <img src="02.jpg" alt="Imagen 2"/>
+    <h3>🗣️ Frases oficiales del evento:</h3>
+    <p>“No se van hasta dejar pedos a los cumpleañeros”</p>
+    <img src="03.jpg" alt="Imagen 3"/>
+    <p>“En los tiempos de crisis interna, los hombres de buena voluntad y generosidad deben ser capaces de festejar”</p>
+    <img src="04.jpeg" alt="Imagen 4"/>
+    <p>🔥 ¡Nos vamos con música, botas, y alma ranchera!</p>
+    <img src="05.jpg" alt="Imagen 5"/>
+    <p>¡No faltes, vaquero! 🎺🥃</p>
+    <img src="06.jpeg" alt="Imagen 6"/>
+    <img src="07.jpeg" alt="Imagen 7"/>
 
     <form id="confirmForm">
-      <h2>✅ Confirmar asistencia</h2>
-      <input type="text" name="nombre" id="nombre" placeholder="Tu nombre aquí..." required>
-      <br>
-      <button type="submit" class="confirmar">Confirmar asistencia</button>
-      <div class="success" id="mensaje"></div>
+      <h2>✅ Confirma tu asistencia</h2>
+      <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre..." required/>
+      <button type="submit">Confirmar</button>
+      <div id="mensaje"></div>
     </form>
   </div>
-
-  <audio id="musicPlayer">
-    <source src="ElEnvidioso.mp3" type="audio/mpeg">
-    Tu navegador no soporta el audio.
-  </audio>
 
   <script>
     const btn = document.getElementById("playButton");
@@ -137,16 +115,17 @@
 
     const form = document.getElementById("confirmForm");
     const mensaje = document.getElementById("mensaje");
+
     form.addEventListener("submit", function(e) {
       e.preventDefault();
       const nombre = document.getElementById("nombre").value;
+
+      const formData = new FormData();
+      formData.append("Nombre", nombre);
+
       fetch("https://script.google.com/macros/s/AKfycbw3NAhy8krI3jqIDSqSwKsy7Hdski7rBXmT5wTCxonaBT0sRYAlJEFwWPMGMO0u9eFOig/exec", {
         method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: "nombre=" + encodeURIComponent(nombre)
+        body: formData,
       })
       .then(() => {
         mensaje.textContent = "🎉 Confirmado. ¡Nos vemos en la fiesta!";
